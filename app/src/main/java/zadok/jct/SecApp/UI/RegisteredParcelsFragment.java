@@ -1,4 +1,4 @@
-package zadok.jct.SecApp;
+package zadok.jct.SecApp.UI;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import zadok.jct.SecApp.R;
 
 public class RegisteredParcelsFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package zadok.jct.SecApp;
+package zadok.jct.SecApp.UI;
 
 import androidx.lifecycle.ViewModel;
 
