@@ -1,8 +1,11 @@
 package zadok.jct.SecApp.Data;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -15,7 +18,7 @@ import java.util.List;
 import zadok.jct.SecApp.Entities.Parcel;
 
 public class ParcelDataSource implements IParcelDataSource {
-
+    final String TAG="ZAODK";
 
     //********************Define the connection to firebase*******************
     static DatabaseReference parcelsRef;
@@ -66,10 +69,22 @@ public class ParcelDataSource implements IParcelDataSource {
         updateParcel(parcel);
     }
 
-    private void updateParcel(Parcel parcel)
+    private void updateParcel(final Parcel parcel)
     {
-        parcelsRef.child(parcel.getParcelId()).removeValue();
-        parcelsRef.child(parcel.getParcelId()).setValue(parcel);
+        //todo: pay attention how to ensure that the removing happen before the set
+        parcelsRef.child(parcel.getParcelId()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.i(TAG,"remove "+parcel+"success");
+                parcelsRef.child(parcel.getParcelId()).setValue(parcel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.i(TAG,"update"+parcel+"success");
+                    }
+                });
+            }
+        });
+
     }
     private void notifyToChildList()
     {
