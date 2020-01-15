@@ -15,7 +15,7 @@ public class ParcelRepository implements IParcelRepository {
 
     //***********************Define this class as a singleton class***************
     private static ParcelRepository parcelRepository_instance=null;
-    private static ParcelRepository getInstance()
+    public static ParcelRepository getInstance()
     {
         if(parcelRepository_instance==null)
             parcelRepository_instance=new ParcelRepository();

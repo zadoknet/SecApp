@@ -1,5 +1,9 @@
 package zadok.jct.SecApp.Data;
 
+import androidx.lifecycle.MutableLiveData;
+
+import java.util.List;
+
 import zadok.jct.SecApp.Entities.Parcel;
 
 public interface IParcelRepository {
@@ -17,4 +21,8 @@ public interface IParcelRepository {
     //5.
     public void offerShipping_Messenger(Parcel parcel);
 
+
+    public MutableLiveData<List<Parcel>> getMuteableParcelList_Messenger();
+    public MutableLiveData<List<Parcel>> getMuteableParcelList_Receiver();
 }
+
