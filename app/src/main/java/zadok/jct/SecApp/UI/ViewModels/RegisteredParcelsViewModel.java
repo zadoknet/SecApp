@@ -1,4 +1,4 @@
-package zadok.jct.SecApp.UI;
+package zadok.jct.SecApp.UI.ViewModels;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;

@@ -5,9 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".UI.RegisteredParcelsFragment">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button"
+        android:id="@+id/button1"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:text="@string/hello" />
 
 </FrameLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/myMenu">
+
+    <item android:id="@+id/orders"
+        android:icon="@drawable/ic_pages"
+        android:title="Orders"/>
+    <item android:id="@+id/ended"
+        android:icon="@drawable/ic_people"
+        android:title="Oreders Ended"/>
+    <item android:id="@+id/exit"
+        android:icon="@drawable/ic_photos"
+        android:title="Exit"/>
+</menu>

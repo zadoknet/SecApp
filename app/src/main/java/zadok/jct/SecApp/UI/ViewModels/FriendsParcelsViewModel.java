@@ -1,4 +1,4 @@
-package zadok.jct.SecApp.UI;
+package zadok.jct.SecApp.UI.ViewModels;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -9,7 +9,7 @@ import zadok.jct.SecApp.Data.IParcelRepository;
 import zadok.jct.SecApp.Data.ParcelRepository;
 import zadok.jct.SecApp.Entities.Parcel;
 
-public class FriendsParcelsViewModel extends ViewModel {
+public class    FriendsParcelsViewModel extends ViewModel {
     // TODO: Implement the ViewModel
     IParcelRepository repository=ParcelRepository.getInstance();
     public MutableLiveData<List<Parcel>> getMuteableParcelList()
