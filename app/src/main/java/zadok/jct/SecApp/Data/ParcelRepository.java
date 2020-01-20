@@ -1,13 +1,9 @@
 package zadok.jct.SecApp.Data;
 
-import androidx.arch.core.util.Function;
 import androidx.lifecycle.MutableLiveData;
-
-import com.google.android.gms.common.util.Predicate;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 import zadok.jct.SecApp.Entities.Parcel;
 
@@ -108,7 +104,7 @@ public class ParcelRepository implements IParcelRepository {
                     if (bigDistance(parcel)&&Confirmed(parcel))
                         itr.remove();
                 }
-                muteableParcelList_Receiver.postValue(parcelList);
+                muteableParcelList_Messenger.postValue(parcelList);
 
             }
 

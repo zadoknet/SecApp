@@ -98,9 +98,9 @@ public class ParcelDataSource implements IParcelDataSource {
 
                 parcelsList.add(parcel);
 
-                if(notifyDataChange_Receiver!=null)
-                    notifyDataChange_Messenger.onDataChanged(parcelsList);
                 if(notifyDataChange_Messenger!=null)
+                    notifyDataChange_Messenger.onDataChanged(parcelsList);
+                if(notifyDataChange_Receiver!=null)
                     notifyDataChange_Receiver.onDataChanged(parcelsList);
             }
 
@@ -114,9 +114,9 @@ public class ParcelDataSource implements IParcelDataSource {
                 parcelsList.add(parcel);
 
                 if(notifyDataChange_Receiver!=null)
-                    notifyDataChange_Messenger.onDataChanged(parcelsList);
-                if(notifyDataChange_Messenger!=null)
                     notifyDataChange_Receiver.onDataChanged(parcelsList);
+                if(notifyDataChange_Messenger!=null)
+                    notifyDataChange_Messenger.onDataChanged(parcelsList);
 
             }
 

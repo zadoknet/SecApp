@@ -18,4 +18,9 @@ public class RegisteredParcelsViewModel extends ViewModel {
         return repository.getMuteableParcelList_Receiver();
     }
 
+    public void getUserParcelList(String mail)
+    {
+        repository.getUserParcelList(mail);
+    }
+
 }

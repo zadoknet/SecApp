@@ -17,4 +17,8 @@ public class    FriendsParcelsViewModel extends ViewModel {
         return repository.getMuteableParcelList_Messenger();
     }
 
+    public void getFrinetList(double distance,String mail)
+    {
+        repository.getMessegerParcelList(distance,mail);
+    }
 }
