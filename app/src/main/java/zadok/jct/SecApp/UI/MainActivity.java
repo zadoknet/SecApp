@@ -52,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
                 int id = item.getItemId();
                 switch(id)
                 {
-                    case R.id.orders:
-                        loadFragment(new FriendsParcelsFragment());
-                        return true;
-                    case R.id.ended:
+                    case R.id.myOrders:
                         loadFragment(new RegisteredParcelsFragment());
+                        return true;
+                    case R.id.myGmach:
+                        loadFragment(new FriendsParcelsFragment());
                         return true;
                     case R.id.exit:
                         finish();

@@ -2,13 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/myMenu">
 
-    <item android:id="@+id/orders"
+    <item
+        android:id="@+id/myOrders"
         android:icon="@drawable/ic_pages"
-        android:title="Orders"/>
-    <item android:id="@+id/ended"
+        android:title="ההזמנות שלי" />
+    <item
+        android:id="@+id/myGmach"
         android:icon="@drawable/ic_people"
-        android:title="Oreders Ended"/>
-    <item android:id="@+id/exit"
+        android:title="חסדים לחברים" />
+    <item
+        android:id="@+id/exit"
         android:icon="@drawable/ic_photos"
-        android:title="Exit"/>
+        android:title="יציאה" />
 </menu>

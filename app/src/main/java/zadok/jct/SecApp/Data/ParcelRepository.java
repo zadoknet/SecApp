@@ -49,7 +49,7 @@ public class ParcelRepository implements IParcelRepository {
                 while (itr.hasNext())
                 {
                     Parcel parcel = (Parcel) itr.next();
-                    if (NotOwnedToReceiver(parcel)&&Accepted(parcel))
+                    if (NotOwnedToReceiver(parcel)||Accepted(parcel))
                         itr.remove();
                 }
                 muteableParcelList_Receiver.postValue(parcelList);
@@ -61,7 +61,7 @@ public class ParcelRepository implements IParcelRepository {
             }
 
             private boolean NotOwnedToReceiver(Parcel parcel) {
-                return !(mail==parcel.getMail());
+                return !(mail.equals(parcel.getMail()));
             }
 
             private boolean notConfirmed(Parcel parcel) {
@@ -92,7 +92,7 @@ public class ParcelRepository implements IParcelRepository {
     //***4
     @Override
     public void getMessegerParcelList(double distance, String mail) {
-        parcelDataSource.getUserParcelList(mail, new IParcelDataSource.NotifyDataChange() {
+        parcelDataSource.getMessegerParcelList(distance,mail, new IParcelDataSource.NotifyDataChange() {
             @Override
             public void onDataChanged(Object obj) {
                 List<Parcel> parcelList=(List<Parcel>)obj;
