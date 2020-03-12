@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onCreate(Bundle saveeIntanceState) {
         super.onCreate(saveeIntanceState);
+
         setContentView(R.layout.activity_main);
         dl=(DrawerLayout)findViewById(R.id.activity_main);
         t = new ActionBarDrawerToggle(this, dl, R.string.open, R.string.Close)
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         public void onDrawerClosed (View view)
         {
+
             getSupportActionBar().setTitle("Close");
             supportInvalidateOptionsMenu();
         }

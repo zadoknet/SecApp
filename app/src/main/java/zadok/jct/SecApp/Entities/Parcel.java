@@ -9,6 +9,7 @@ import com.google.firebase.database.Exclude;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 import zadok.jct.SecApp.Utils.MyLocation;
 
@@ -41,6 +42,14 @@ public class Parcel {
     private ParcelWeight weight;
 
 
+    private HashMap<String,Boolean> myHashMap;
+    public HashMap<String, Boolean> getMyHashMap(){
+        return myHashMap;
+    }
+
+    public void setMyHashMap(HashMap<String, Boolean> myHashMap) {
+        myHashMap = myHashMap;
+    }
 
 
 

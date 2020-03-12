@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layoutDirection="rtl"
+    android:layout_alignParentRight="true"
+
+    android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+<TextView
+    android:id="@+id/sort1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="סוג "/>
+<CheckBox
+    android:id="@+id/is_fragile1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="שביר? "/>
+<TextView
+    android:id="@+id/weight1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="משקל "/>
+<TextView
+    android:id="@+id/date1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="תאריך "/>
+</LinearLayout>
+
+
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/choose_sender_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" בחר שליח"/>
+    <Spinner
+    android:id="@+id/choose_sender"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    />
+    <Button
+        android:id="@+id/choose_sender_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="בחר שליח"/>
+    <Button
+        android:id="@+id/confirm_parcel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="אשר הגעת חבילה"/>
+</LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+</LinearLayout>

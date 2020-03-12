@@ -1,6 +1,7 @@
 package zadok.jct.SecApp.UI;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -30,6 +31,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private FirebaseAuth mAuth;
 
+    private static SharedPreferences sharedPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.btn_sign_out).setOnClickListener(this);
         findViewById(R.id.btn_verify_email).setOnClickListener(this);
 
+        sharedPref=getSharedPreferences("USER DETAILS",MODE_PRIVATE);
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -82,7 +85,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                             // update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
+
                             //todo:save the username/mail adrdress in shared pre
+                            sharedPref.edit().putString("MAIL",user.getEmail()).commit();
                             Intent intent=new Intent(LoginActivity.this,MainActivity.class);
                             startActivity(intent);
                         } else {
@@ -105,8 +110,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             if (task.isSuccessful()) {
                                 Log.e(TAG, "signIn: Success!");
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                //todo: store the user in the shared pre
+                                sharedPref.edit().putString("MAIL",user.getEmail()).commit();
+
                                 Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                                updateUI(user);
                                 startActivity(intent);
 
 
@@ -118,7 +125,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     });
         }
     private void signOut() {
-        //todo: delete mail from shared pre
+        sharedPref.edit().remove("MAIL").commit();
+        sharedPref.getString("MAIL","signed out");
         mAuth.signOut();
 
     }
@@ -141,7 +149,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         return true;
     }
+    private void updateUI(FirebaseUser user) {
+        if (user != null) {
+            txtStatus.setText("User Email: " + user.getEmail() + "(verified: " + user.isEmailVerified() + ")");
+            txtDetail.setText("Firebase User ID: " + user.getUid());
 
+            findViewById(R.id.email_password_buttons).setVisibility(View.GONE);
+            findViewById(R.id.email_password_fields).setVisibility(View.GONE);
+            findViewById(R.id.layout_signed_in_buttons).setVisibility(View.VISIBLE);
+
+            findViewById(R.id.btn_verify_email).setEnabled(!user.isEmailVerified());
+        } else {
+            txtStatus.setText("Signed Out");
+            txtDetail.setText(null);
+
+            findViewById(R.id.email_password_buttons).setVisibility(View.VISIBLE);
+            findViewById(R.id.email_password_fields).setVisibility(View.VISIBLE);
+            findViewById(R.id.layout_signed_in_buttons).setVisibility(View.GONE);
+        }
+    }
 }
 
 
